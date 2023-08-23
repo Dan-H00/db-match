@@ -13,6 +13,21 @@
             <img th:src="@{/styles/cssandjs/CONTENT/logo.png}" alt="logo" class="logo">
         </div>
 
+        <section class="modal hidden">
+            <div class="flex">
+                <button class="btn-close">⨉</button>
+            </div>
+            <div>
+                <p>
+                    This is a dummy newsletter form so don't bother trying to test it. Not
+                    that I expect you to, anyway. :)
+                </p>
+            </div>
+        </section>
+
+        <div class="overlay hidden"></div>
+        <button class="btn btn-open">Open Modal</button>
+
         <div class="selection">
             <p>What is the nature of your project? Is it a simple or complex project? Is it transaction-heavy or more
                 analytical?</p>
@@ -73,14 +88,14 @@
 
         <div class="selection">
             <p>What are the skill sets of your team members? Do they have experience working with a particular database
-                type, or are they comfortable with learning a new database technology?</p>
+                type, or are they comfortable learning a new database technology?</p>
             <fieldset>
                 <input type="radio" id="experience_relational" name="experience_requirements_response">
                 <label for="experience_relational">Experience with relational databases (e.g., MySQL, PostgresSQL)</label><br>
                 <input type="radio" id="experience_nosql" name="experience_requirements_response">
                 <label for="experience_nosql">Experience with NoSQL databases (e.g., MongoDB, Cassandra)</label><br>
                 <input type="radio" id="experience_learning" name="experience_requirements_response">
-                <label for="experience_learning">Comfortable with learning new technologies</label><br>
+                <label for="experience_learning">Comfortable learning new technologies</label><br>
                 <input type="radio" id="experience_zero" name="experience_requirements_response">
                 <label for="experience_zero">No specific experience</label><br>
             </fieldset>
@@ -114,6 +129,24 @@
 
         <button id="submitBtn">Submit</button>
         <script>
+            const modal = document.querySelector(".modal");
+            const overlay = document.querySelector(".overlay");
+            const openModalBtn = document.querySelector(".btn-open");
+            const closeModalBtn = document.querySelector(".btn-close");
+
+            const openModal = function () {
+                modal.classList.remove("hidden");
+                overlay.classList.remove("hidden");
+            };
+            openModalBtn.addEventListener("click", openModal);
+
+            const closeModal = function () {
+                modal.classList.add("hidden");
+                overlay.classList.add("hidden");
+            };
+            closeModalBtn.addEventListener("click", closeModal);
+            overlay.addEventListener("click", closeModal);
+
             $(document).ready(function () {
                 $("#submitBtn").click(function () {
                     const selectedNature = $("input[name='nature_response']:checked").attr("id");
