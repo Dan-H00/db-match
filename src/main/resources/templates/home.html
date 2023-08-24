@@ -1,183 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>DBMatch</title>
-        <link rel="stylesheet" type="text/css" th:href="@{/styles/cssandjs/home.css}">
-        <link rel="shortcut icon" type="image/x-icon" th:href="@{/styles/cssandjs/CONTENT/tabIcon.png}" />
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    </head>
-    <body>
-        <div class="title">
-            <h1>Welcome to DBMatch!</h1>
-            <img th:src="@{/styles/cssandjs/CONTENT/logo.png}" alt="logo" class="logo">
-        </div>
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/styles/cssandjs/home.css"/>
+    <meta charset="UTF-8">
+    <title>DBMatch</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/cssandjs/home.css}">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/styles/cssandjs/CONTENT/tabIcon.png}"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="title">
+    <h1>Welcome to DBMatch!</h1>
+    <img th:src="@{/styles/cssandjs/CONTENT/logo.png}" alt="logo" class="logo">
+</div>
 
-        <section class="modal hidden">
-            <div class="flex">
-                <button class="btn-close">⨉</button>
-            </div>
-            <div>
-                <p>
-                    This is a dummy newsletter form so don't bother trying to test it. Not
-                    that I expect you to, anyway. :)
-                </p>
-            </div>
-        </section>
+<section class="modal hierarchical hidden">
+    <div class="flex">
+        <button class="btn-close close-hierarchical">⨉</button>
+    </div>
+    <div>
+        <p>
+            HIERARCHICAL
+        </p>
+    </div>
+</section>
 
-        <div class="overlay hidden"></div>
-        <button class="btn btn-open">Open Modal</button>
+<section class="modal network hidden">
+    <div class="flex">
+        <button class="btn-close close-network">⨉</button>
+    </div>
+    <div>
+        <p>
+            NETWORK
+        </p>
+    </div>
+</section>
 
-        <div class="selection">
-            <p>What is the nature of your project? Is it a simple or complex project? Is it transaction-heavy or more
-                analytical?</p>
-            <fieldset>
-                <input type="radio" id="nature_simple" name="nature_response">
-                <label for="nature_simple">Simple project</label><br>
-                <input type="radio" id="nature_complex" name="nature_response">
-                <label for="nature_complex">Complex project</label><br>
-                <input type="radio" id="nature_transaction" name="nature_response">
-                <label for="nature_transaction">Transaction-heavy</label><br>
-                <input type="radio" id="nature_analytical" name="nature_response">
-                <label for="nature_analytical">Analytical</label><br>
-            </fieldset>
-        </div>
+<section class="modal oop hidden">
+    <div class="flex">
+        <button class="btn-close close-oop">⨉</button>
+    </div>
+    <div>
+        <p>
+            OOP
+        </p>
+    </div>
+</section>
 
-        <div class="selection">
-            <p>What are the data requirements of your project? What types of data will you be storing and processing, and how
-                much data do you expect to handle?</p>
-            <fieldset>
-                <input type="radio" id="data_structured" name="data_requirements_response">
-                <label for="data_structured">Structured data (e.g., tabular data)</label><br>
-                <input type="radio" id="data_semi_structured" name="data_requirements_response">
-                <label for="data_semi_structured">Semi-structured data (e.g., JSON, XML)</label><br>
-                <input type="radio" id="data_unstructured" name="data_requirements_response">
-                <label for="data_unstructured">Unstructured data (e.g., text, documents)</label><br>
-                <input type="radio" id="data_large_scale" name="data_requirements_response">
-                <label for="data_large_scale">Large-scale data handling</label><br>
-            </fieldset>
-        </div>
+<section class="modal relational hidden">
+    <div class="flex">
+        <button class="btn-close close-relational">⨉</button>
+    </div>
+    <div>
+        <p>
+            RELATIONAL
+        </p>
+    </div>
+</section>
 
-        <div class="selection">
-            <p>What are the performance requirements of your project? Do you need high availability and scalability,
-                or can you compromise on performance for cost savings?</p>
-            <fieldset>
-                <input type="radio" id="performance_high" name="performance_requirements_response">
-                <label for="performance_high">High availability and scalability</label><br>
-                <input type="radio" id="performance_balanced" name="performance_requirements_response">
-                <label for="performance_balanced">Balanced performance and cost</label><br>
-                <input type="radio" id="performance_cost" name="performance_requirements_response">
-                <label for="performance_cost">Cost optimization</label><br>
-            </fieldset>
-        </div>
+<section class="modal nosql hidden">
+    <div class="flex">
+        <button class="btn-close close-nosql">⨉</button>
+    </div>
+    <div>
+        <p>
+            NOSQL
+        </p>
+    </div>
+</section>
 
-        <div class="selection">
-            <p>What are the budget constraints of your project? What is the budget allocated for the database, and are
-                there any restrictions on licensing and hardware?</p>
-            <fieldset>
-                <input type="radio" id="budget_high" name="budget_requirements_response">
-                <label for="budget_high">High budget</label><br>
-                <input type="radio" id="budget_moderate" name="budget_requirements_response">
-                <label for="budget_moderate">Moderate budget</label><br>
-                <input type="radio" id="budget_low" name="budget_requirements_response">
-                <label for="budget_low">Low budget</label><br>
-                <input type="radio" id="budget_zero" name="budget_requirements_response">
-                <label for="budget_zero">Open source/Free licensing only</label><br>
-            </fieldset>
-        </div>
+<div class="overlay hidden"></div>
+<div class="button-container">
+    <button class="btn btn-open hierarchicalDB">Hierarchical Databases</button>
+    <button class="btn btn-open networkDB">Network Databases</button>
+    <button class="btn btn-open oopDB">OOP Databases</button>
+    <button class="btn btn-open relationalDB">Relational Databases</button>
+    <button class="btn btn-open nosqlDB">NoSQL Databases</button>
+</div>
 
-        <div class="selection">
-            <p>What are the skill sets of your team members? Do they have experience working with a particular database
-                type, or are they comfortable learning a new database technology?</p>
-            <fieldset>
-                <input type="radio" id="experience_relational" name="experience_requirements_response">
-                <label for="experience_relational">Experience with relational databases (e.g., MySQL, PostgresSQL)</label><br>
-                <input type="radio" id="experience_nosql" name="experience_requirements_response">
-                <label for="experience_nosql">Experience with NoSQL databases (e.g., MongoDB, Cassandra)</label><br>
-                <input type="radio" id="experience_learning" name="experience_requirements_response">
-                <label for="experience_learning">Comfortable learning new technologies</label><br>
-                <input type="radio" id="experience_zero" name="experience_requirements_response">
-                <label for="experience_zero">No specific experience</label><br>
-            </fieldset>
-        </div>
+<div class="selection">
+    <p>What is the nature of your project? Is it a simple or complex project? Is it transaction-heavy or more
+        analytical?</p>
+    <fieldset>
+        <input type="radio" id="nature_simple" name="nature_response">
+        <label for="nature_simple">Simple project</label><br>
+        <input type="radio" id="nature_complex" name="nature_response">
+        <label for="nature_complex">Complex project</label><br>
+        <input type="radio" id="nature_transaction" name="nature_response">
+        <label for="nature_transaction">Transaction-heavy</label><br>
+        <input type="radio" id="nature_analytical" name="nature_response">
+        <label for="nature_analytical">Analytical</label><br>
+    </fieldset>
+</div>
 
-        <div class="selection">
-            <p>What are the integration requirements of your project? Does it need to integrate with other systems,
-                such as third-party software or APIs?</p>
-            <fieldset>
-                <input type="radio" id="integration_extensive" name="integration_requirements_response">
-                <label for="integration_extensive">Extensive integration requirements</label><br>
-                <input type="radio" id="integration_limited" name="integration_requirements_response">
-                <label for="integration_limited">Limited integration requirements</label><br>
-                <input type="radio" id="integration_zero" name="integration_requirements_response">
-                <label for="integration_zero">No integration requirements</label><br>
-            </fieldset>
-        </div>
+<div class="selection">
+    <p>What are the data requirements of your project? What types of data will you be storing and processing, and how
+        much data do you expect to handle?</p>
+    <fieldset>
+        <input type="radio" id="data_structured" name="data_requirements_response">
+        <label for="data_structured">Structured data (e.g., tabular data)</label><br>
+        <input type="radio" id="data_semi_structured" name="data_requirements_response">
+        <label for="data_semi_structured">Semi-structured data (e.g., JSON, XML)</label><br>
+        <input type="radio" id="data_unstructured" name="data_requirements_response">
+        <label for="data_unstructured">Unstructured data (e.g., text, documents)</label><br>
+        <input type="radio" id="data_large_scale" name="data_requirements_response">
+        <label for="data_large_scale">Large-scale data handling</label><br>
+    </fieldset>
+</div>
 
-        <div class="selection">
-            <p>What are the security requirements of your project? What measures need to be taken to ensure the
-                security and privacy of the data?</p>
-            <fieldset>
-                <input type="radio" id="security_high" name="security_requirements_response">
-                <label for="security_high">High security requirements (e.g., encryption, access control)</label><br>
-                <input type="radio" id="security_moderate" name="security_requirements_response">
-                <label for="security_moderate">Moderate security requirements</label><br>
-                <input type="radio" id="security_low" name="security_requirements_response">
-                <label for="security_low">Basic security requirements</label><br>
-            </fieldset>
-        </div>
+<div class="selection">
+    <p>What are the performance requirements of your project? Do you need high availability and scalability,
+        or can you compromise on performance for cost savings?</p>
+    <fieldset>
+        <input type="radio" id="performance_high" name="performance_requirements_response">
+        <label for="performance_high">High availability and scalability</label><br>
+        <input type="radio" id="performance_balanced" name="performance_requirements_response">
+        <label for="performance_balanced">Balanced performance and cost</label><br>
+        <input type="radio" id="performance_cost" name="performance_requirements_response">
+        <label for="performance_cost">Cost optimization</label><br>
+    </fieldset>
+</div>
 
-        <button id="submitBtn">Submit</button>
-        <script>
-            const modal = document.querySelector(".modal");
-            const overlay = document.querySelector(".overlay");
-            const openModalBtn = document.querySelector(".btn-open");
-            const closeModalBtn = document.querySelector(".btn-close");
+<div class="selection">
+    <p>What are the budget constraints of your project? What is the budget allocated for the database, and are
+        there any restrictions on licensing and hardware?</p>
+    <fieldset>
+        <input type="radio" id="budget_high" name="budget_requirements_response">
+        <label for="budget_high">High budget</label><br>
+        <input type="radio" id="budget_moderate" name="budget_requirements_response">
+        <label for="budget_moderate">Moderate budget</label><br>
+        <input type="radio" id="budget_low" name="budget_requirements_response">
+        <label for="budget_low">Low budget</label><br>
+        <input type="radio" id="budget_zero" name="budget_requirements_response">
+        <label for="budget_zero">Open source/Free licensing only</label><br>
+    </fieldset>
+</div>
 
-            const openModal = function () {
-                modal.classList.remove("hidden");
-                overlay.classList.remove("hidden");
-            };
-            openModalBtn.addEventListener("click", openModal);
+<div class="selection">
+    <p>What are the skill sets of your team members? Do they have experience working with a particular database
+        type, or are they comfortable learning a new database technology?</p>
+    <fieldset>
+        <input type="radio" id="experience_relational" name="experience_requirements_response">
+        <label for="experience_relational">Experience with relational databases (e.g., MySQL, PostgresSQL)</label><br>
+        <input type="radio" id="experience_nosql" name="experience_requirements_response">
+        <label for="experience_nosql">Experience with NoSQL databases (e.g., MongoDB, Cassandra)</label><br>
+        <input type="radio" id="experience_learning" name="experience_requirements_response">
+        <label for="experience_learning">Comfortable learning new technologies</label><br>
+        <input type="radio" id="experience_zero" name="experience_requirements_response">
+        <label for="experience_zero">No specific experience</label><br>
+    </fieldset>
+</div>
 
-            const closeModal = function () {
-                modal.classList.add("hidden");
-                overlay.classList.add("hidden");
-            };
-            closeModalBtn.addEventListener("click", closeModal);
-            overlay.addEventListener("click", closeModal);
+<div class="selection">
+    <p>What are the integration requirements of your project? Does it need to integrate with other systems,
+        such as third-party software or APIs?</p>
+    <fieldset>
+        <input type="radio" id="integration_extensive" name="integration_requirements_response">
+        <label for="integration_extensive">Extensive integration requirements</label><br>
+        <input type="radio" id="integration_limited" name="integration_requirements_response">
+        <label for="integration_limited">Limited integration requirements</label><br>
+        <input type="radio" id="integration_zero" name="integration_requirements_response">
+        <label for="integration_zero">No integration requirements</label><br>
+    </fieldset>
+</div>
 
-            $(document).ready(function () {
-                $("#submitBtn").click(function () {
-                    const selectedNature = $("input[name='nature_response']:checked").attr("id");
-                    const selectedDataRequirements = $("input[name='data_requirements_response']:checked").attr("id");
-                    const selectedPerformanceRequirements = $("input[name='performance_requirements_response']:checked").attr("id");
-                    const selectedBudgetRequirements = $("input[name='budget_requirements_response']:checked").attr("id");
-                    const selectedExperienceRequirements = $("input[name='experience_requirements_response']:checked").attr("id");
-                    const selectedIntegrationRequirements = $("input[name='integration_requirements_response']:checked").attr("id");
-                    const selectedSecurityRequirements = $("input[name='security_requirements_response']:checked").attr("id");
+<div class="selection">
+    <p>What are the security requirements of your project? What measures need to be taken to ensure the
+        security and privacy of the data?</p>
+    <fieldset>
+        <input type="radio" id="security_high" name="security_requirements_response">
+        <label for="security_high">High security requirements (e.g., encryption, access control)</label><br>
+        <input type="radio" id="security_moderate" name="security_requirements_response">
+        <label for="security_moderate">Moderate security requirements</label><br>
+        <input type="radio" id="security_low" name="security_requirements_response">
+        <label for="security_low">Basic security requirements</label><br>
+    </fieldset>
+</div>
 
-                    $.ajax({
-                        type: "POST",
-                        url: "/radioResults",
-                        data: {
-                            natureResponse: selectedNature,
-                            dataRequirementsResponse: selectedDataRequirements,
-                            performanceRequirementsResponse: selectedPerformanceRequirements,
-                            budgetRequirementsResponse: selectedBudgetRequirements,
-                            experienceRequirementsResponse: selectedExperienceRequirements,
-                            integrationRequirementsResponse: selectedIntegrationRequirements,
-                            securityRequirementsResponse: selectedSecurityRequirements
-                        },
-                        success: function (response) {
-                            console.log(response);
-                        },
-                        error: function (xhr, status, error) {
-                            console.error("Error sending selection:", error);
-                        }
-                    });
-                });
+<button id="submitBtn">Submit</button>
+<script>
+    const buttons = document.querySelector(".button-container")
+    const modalHierarchical = document.querySelector(".hierarchical");
+    const modalNetwork = document.querySelector(".network");
+    const modalOop = document.querySelector(".oop");
+    const modalRelational = document.querySelector(".relational");
+    const modalNosql = document.querySelector(".nosql");
+    const overlay = document.querySelector(".overlay");
+    const openModalBtnHierarchical = document.querySelector(".hierarchicalDB");
+    const openModalBtnNetwork = document.querySelector(".networkDB");
+    const openModalBtnOop = document.querySelector(".oopDB");
+    const openModalBtnRelational = document.querySelector(".relationalDB");
+    const openModalBtnNosql = document.querySelector(".nosqlDB");
+    const closeModalBtnHierarchical = document.querySelector(".close-hierarchical");
+    const closeModalBtnNetwork = document.querySelector(".close-network");
+    const closeModalBtnOop = document.querySelector(".close-oop");
+    const closeModalBtnRelational = document.querySelector(".close-relational");
+    const closeModalBtnNosql = document.querySelector(".close-nosql");
+
+    const openModalHierarchical = function () {
+
+        modalHierarchical.classList.remove("hidden");
+        overlay.classList.remove("hidden");
+        buttons.classList.add("hidden");
+    };
+    openModalBtnHierarchical.addEventListener("click", openModalHierarchical);
+
+    const openModalNetwork = function () {
+        modalNetwork.classList.remove("hidden");
+        overlay.classList.remove("hidden");
+        buttons.classList.add("hidden");
+    };
+    openModalBtnNetwork.addEventListener("click", openModalNetwork);
+
+    const openModalOop = function () {
+        modalOop.classList.remove("hidden");
+        overlay.classList.remove("hidden");
+        buttons.classList.add("hidden");
+    };
+    openModalBtnOop.addEventListener("click", openModalOop);
+
+    const openModalRelational = function () {
+        modalRelational.classList.remove("hidden");
+        overlay.classList.remove("hidden");
+        buttons.classList.add("hidden");
+    };
+    openModalBtnRelational.addEventListener("click", openModalRelational);
+
+    const openModalNosql = function () {
+        modalNosql.classList.remove("hidden");
+        overlay.classList.remove("hidden");
+        buttons.classList.add("hidden");
+    };
+    openModalBtnNosql.addEventListener("click", openModalNosql);
+
+    const closeModalHierarchical = function () {
+        modalHierarchical.classList.add("hidden");
+        overlay.classList.add("hidden");
+        buttons.classList.remove("hidden");
+    };
+    closeModalBtnHierarchical.addEventListener("click", closeModalHierarchical);
+
+    const closeModalNetwork = function () {
+        modalNetwork.classList.add("hidden");
+        overlay.classList.add("hidden");
+        buttons.classList.remove("hidden");
+    };
+    closeModalBtnNetwork.addEventListener("click", closeModalNetwork);
+
+    const closeModalOop = function () {
+        modalOop.classList.add("hidden");
+        overlay.classList.add("hidden");
+        buttons.classList.remove("hidden");
+    };
+    closeModalBtnOop.addEventListener("click", closeModalOop);
+
+    const closeModalRelational = function () {
+        modalRelational.classList.add("hidden");
+        overlay.classList.add("hidden");
+        buttons.classList.remove("hidden");
+    };
+    closeModalBtnRelational.addEventListener("click", closeModalRelational);
+
+    const closeModalNosql = function () {
+        modalNosql.classList.add("hidden");
+        overlay.classList.add("hidden");
+        buttons.classList.remove("hidden");
+    };
+    closeModalBtnNosql.addEventListener("click", closeModalNosql);
+
+    overlay.addEventListener("click", closeModalHierarchical);
+    overlay.addEventListener("click", closeModalNetwork);
+    overlay.addEventListener("click", closeModalOop);
+    overlay.addEventListener("click", closeModalRelational);
+    overlay.addEventListener("click", closeModalNosql);
+
+    $(document).ready(function () {
+        $("#submitBtn").click(function () {
+            const selectedNature = $("input[name='nature_response']:checked").attr("id");
+            const selectedDataRequirements = $("input[name='data_requirements_response']:checked").attr("id");
+            const selectedPerformanceRequirements = $("input[name='performance_requirements_response']:checked").attr("id");
+            const selectedBudgetRequirements = $("input[name='budget_requirements_response']:checked").attr("id");
+            const selectedExperienceRequirements = $("input[name='experience_requirements_response']:checked").attr("id");
+            const selectedIntegrationRequirements = $("input[name='integration_requirements_response']:checked").attr("id");
+            const selectedSecurityRequirements = $("input[name='security_requirements_response']:checked").attr("id");
+
+            $.ajax({
+                type: "POST",
+                url: "/radioResults",
+                data: {
+                    natureResponse: selectedNature,
+                    dataRequirementsResponse: selectedDataRequirements,
+                    performanceRequirementsResponse: selectedPerformanceRequirements,
+                    budgetRequirementsResponse: selectedBudgetRequirements,
+                    experienceRequirementsResponse: selectedExperienceRequirements,
+                    integrationRequirementsResponse: selectedIntegrationRequirements,
+                    securityRequirementsResponse: selectedSecurityRequirements
+                },
+                success: function (response) {
+                    console.log(response);
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error sending selection:", error);
+                }
             });
-        </script>
-    </body>
+        });
+    });
+</script>
+</body>
 </html>
