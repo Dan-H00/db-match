@@ -20,7 +20,19 @@
     </div>
     <div>
         <p>
-            HIERARCHICAL
+            Hierarchical databases are a type of database management system that organizes data in a tree-like
+            structure,
+            where each record is connected to one or more parent and child records, creating a hierarchical
+            relationship.
+            This type of database is particularly suited for representing data with inherent parent-child relationships,
+            similar to a family tree.
+            Each parent can have multiple children, but a child can only have one parent. Hierarchical databases were
+            popular in the early days of
+            computing and are still used in specific applications where data relationships are naturally hierarchical,
+            such as file systems. However,
+            their rigid structure and limited flexibility have led to the rise of more versatile database models like
+            relational and NoSQL databases in modern
+            applications.
         </p>
     </div>
 </section>
@@ -31,7 +43,19 @@
     </div>
     <div>
         <p>
-            NETWORK
+            Network databases are a type of database management system that builds on the hierarchical model by allowing
+            records to
+            have multiple parent and child relationships. In a network database, records are connected in a more
+            intricate web-like structure,
+            enabling a more flexible representation of data relationships compared to the strict hierarchy of
+            hierarchical databases.
+            This model allows records to be linked to multiple other records, expanding the possibilities for expressing
+            complex data relationships.
+            Network databases were developed as a response to the limitations of hierarchical databases, aiming to
+            better
+            accommodate real-world data scenarios. However, they also faced challenges, such as complexity in
+            implementation and querying,
+            which eventually led to the emergence of the relational database model as a more widely adopted solution.
         </p>
     </div>
 </section>
@@ -42,7 +66,20 @@
     </div>
     <div>
         <p>
-            OOP
+            Object-Oriented Programming (OOP) databases are a type of database management system that aligns with the
+            principles
+            of object-oriented programming. In OOP databases, data is stored in the form of objects, which combine both
+            data and
+            the methods or functions that operate on that data. This approach allows for a more natural representation
+            of real-world entities and
+            relationships. OOP databases support concepts like encapsulation, inheritance, and polymorphism, which are
+            fundamental to
+            object-oriented programming. They are particularly well-suited for applications that require modeling
+            complex and interconnected
+            data structures. While OOP databases offer advantages in terms of data modeling and software design, they
+            are not as widely used as other
+            database models like relational or NoSQL databases, partly due to the complexity of their implementation and
+            limited standardization.
         </p>
     </div>
 </section>
@@ -53,7 +90,19 @@
     </div>
     <div>
         <p>
-            RELATIONAL
+            Relational databases are a widely used type of database management system that organizes data into
+            structured tables with rows
+            and columns. These databases establish relationships between tables through shared data elements, known as
+            keys.
+            The relational model is based on set theory and mathematical principles, providing a structured and
+            organized way to store and manage data.
+            This approach offers strong data integrity, as it enforces rules for maintaining consistency and accuracy.
+            SQL (Structured Query Language)
+            is commonly used to manipulate and query data in relational databases. Relational databases are well-suited
+            for structured data with
+            defined relationships, making them a cornerstone in various industries, from finance to e-commerce, due to
+            their reliability, ease of use,
+            and standardized querying capabilities.
         </p>
     </div>
 </section>
@@ -64,7 +113,21 @@
     </div>
     <div>
         <p>
-            NOSQL
+            NoSQL databases, or "not only SQL" databases, are a diverse category of database management systems
+            designed to handle a wide variety of data types and structures that do not fit neatly into the traditional
+            relational model.
+            Unlike relational databases, NoSQL databases are flexible and schema-less, enabling them to manage
+            unstructured, semi-structured,
+            and rapidly evolving data. NoSQL databases offer various models, such as document, key-value, column-family,
+            and graph databases,
+            each optimized for specific data requirements. These databases are well-suited for modern applications that
+            demand high scalability,
+            availability, and performance, such as big data analytics, real-time applications, and content management
+            systems.
+            While NoSQL databases provide advantages in handling large and diverse datasets, they also introduce
+            challenges in terms
+            of data consistency, querying complexity, and standardization due to their varied models and lack of a rigid
+            schema.
         </p>
     </div>
 </section>
@@ -295,9 +358,6 @@
                     experienceRequirementsResponse: selectedExperienceRequirements,
                     integrationRequirementsResponse: selectedIntegrationRequirements,
                     securityRequirementsResponse: selectedSecurityRequirements
-                },
-                success: function (response) {
-                    console.log(response);
                 },
                 error: function (xhr, status, error) {
                     console.error("Error sending selection:", error);
